@@ -1,0 +1,17 @@
+#menu {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    background-color: black;
+}
+
+#pmenu{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+    font-family: Blippo, fantasy;
+    font-size: 40px;
+    color: white;
+}

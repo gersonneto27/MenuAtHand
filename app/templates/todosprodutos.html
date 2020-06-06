@@ -1,0 +1,41 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Produtos</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="css/todosprodutos.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/bootstrap.min.css")}}">
+</head>
+<body>
+  <div id="menu">
+    <p id="pmenu">Lista de Produtos</p>
+  </div>
+  <div class="container">
+    <div class="col-4">
+        <br>
+        <a href="{{ url_for('adicionarproduto') }}" class="btn btn-success m-5">Adicionar novo Produto</a>
+        <a href="{{ url_for('areaadmin') }}" class="btn btn-danger m-5">Home</a>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+            <th>Nome do Produto</th>
+            <th>Descrição do Produto</th>
+            <th>Valor do Produto</th>
+        </tr>
+      </thead>
+        <tbody>
+          {% for produto in produtos %}
+            <tr>
+              <td>{{ produto.nome_produto}}</td>
+              <td>{{ produto.descricao }}</td>
+              <td>{{ produto.valor }}</td>
+              <td><a href="{{ url_for('produto', produto_id=produto.produto_id) }}" class="btn btn-primary btn-sm m-1">Ver</a></td>
+
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div>
+	<h2>Mostrar todos produtos da categoria: {{nome_categoria}}</h2>
+	{% for itemData in data %}
+	<table>
+		<tr id="productName">
+			{% for row in itemData %}
+			<td>
+				{{row['nome_produto']}}
+			</td>
+			{% endfor %}
+		</tr>
+		<tr id="productImage">
+			{% for row in itemData %}
+			<td>
+				<a href="/descricaoproduto?produto_id={{row.produto_id}}">
+					<img src={{ url_for('static', filename='img/' + row.imagem) }} id="itemImage" />
+				</a>
+			</td>
+			{% endfor %}
+		</tr>
+	</table>
+	{% endfor %}
+</div>
+{%endblock%}

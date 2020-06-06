@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Categoria</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/font-awesome.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/bootstrap.min.css")}}">
+     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="css/adicionarcategoria.css")}}">
+</head>
+<body>
+    <div id="menu">
+        <p id="pmenu">Cadastrar Categorias</p>
+    <div class="container">
+        <div class="col-4">
+            <a href="{{ url_for('todascategorias') }}" class="btn btn-success m-5">Listar Categorias</a>
+            <a href="{{ url_for('areaadmin') }}" class="btn btn-danger m-5">Home</a>
+        </div>
+        <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.nome_categoria.label }}
+                    {% if form.nome_categoria.errors %}
+                        {{ form.nome_categoria(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nome_Categoria.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.nome_categoria}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+        </form>
+    </div>
+</body>
+</html>

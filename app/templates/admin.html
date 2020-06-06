@@ -1,0 +1,24 @@
+{% extends 'baseadmin.html' %}
+
+{% block content %}
+  <table class="table table-hover">
+  <thead>
+    <tr>
+        <th>ID dos Pedidos</th>
+        <th>ID da Mesa</th>
+        <th>Valor Total</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for pedido in pedidos %}
+        <tr>
+          <td>{{ pedido.pedido_id }}</td> 
+          <td>{{ pedido.mesa_id }}</td>
+          <td>R${{ pedido.valor_total }}</td>
+          <td><a href="{{ url_for('verpedido', pedido_id=pedido.pedido_id) }}" class="btn btn-primary btn-sm m-1">Ver</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

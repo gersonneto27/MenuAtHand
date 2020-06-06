@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div id="display">
+	<div id="productName">
+		<h1>{{data.nome_produto}}</h1>
+	</div>
+	<div>
+		<img src={{url_for('static', filename='img/'+data.imagem) }} id="productImage"/>
+	</div>
+
+	<div id="productDescription">
+		<h2>Detalhes</h2>
+		<table id="descriptionTable">
+			<tr>
+				<td>Nome: </td>
+				<td>{{data.nome_produto}}</td>
+			</tr>
+			<tr>
+				<td>Preço: </td>
+				<td>R$ {{data.valor}}</td>
+			</tr>
+		</table>
+		<h2>Descrição: </h2>
+		<p>{{data['descricao']}}</p>
+	</div>
+	<div id="addToCart">
+		<a href="/adicionaraocarrinho?produto_id={{request.args.get('produto_id')}}">PEDIR</a>
+	</div>
+</div>
+{% endblock %}

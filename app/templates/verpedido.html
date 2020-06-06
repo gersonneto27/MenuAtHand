@@ -1,0 +1,22 @@
+{% extends 'baseadmin.html' %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+          <th>Nome do Produto</th>
+          <th>Quantidade</th>
+      </tr>
+    </thead>
+      <tbody>
+        {% for produto in produtos %}
+          <tr>
+            <td>{{ produto.nome_produto }}</td> 
+            <td>{{ produto.quantidade}}</td>
+            <td><a href="#" class="btn btn-primary btn-sm m-1">Finalizar</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+{% endblock %}

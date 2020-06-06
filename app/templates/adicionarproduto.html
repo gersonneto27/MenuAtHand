@@ -1,0 +1,97 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Novo Produto</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/font-awesome.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/bootstrap.min.css")}}">
+     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="css/adicionarcategoria.css")}}">
+</head>
+<body>
+    <div id="menu">
+        <p id="pmenu">Cadastrar Categorias</p>
+    <div class="container">
+        <div class="col-4">
+            <a href="{{ url_for('todosprodutos') }}" class="btn btn-success m-5">Listar Produtos</a>
+            <a href="{{ url_for('areaadmin') }}" class="btn btn-danger m-5">Home</a>
+        </div>
+    <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {% if produto_icone %}
+                        <img src="{{ produto_icone }}" alt="">
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.imagem.label() }}
+                    {{ form.imagem(class="form-control-file") }}
+                    {% if form.imagem.errors %}
+                        {% for error in form.imagem.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.categoria.label }}
+                    {% if form.categoria.errors %}
+                        {{ form.categoria(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.categoria.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.categoria}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.nome_produto.label }}
+                    {% if form.nome_produto.errors %}
+                        {{ form.nome_produto(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nome_produto.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.nome_produto}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.descricao.label }}
+                    {% if form.descricao.errors %}
+                        {{ form.descricao(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.descricao.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.descricao}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.valor.label }}
+                    {% if form.valor.errors %}
+                        {{ form.valor(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.valor.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.valor}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+
+        </form>
+    </div>
+</body>
+</html>

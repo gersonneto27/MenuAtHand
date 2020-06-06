@@ -1,0 +1,21 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/sucesso.css') }} />
+    <title>Puro Sabor</title>
+</head>
+<body>
+    <div id="menu">
+      <p id="pmenu">Puro Sabor</p>
+    </div>
+        <div id="resposta">
+            <label>PEDIDO REALIZADO COM SUCESSO</label>
+        </div>
+        <div id="ask">
+            <a href="/cardapio"/>Adicionar Algo mais?
+        </div>
+    </div>
+    <script src="{{url_for('static', filename="js/carrinho2.js")}}"></script>
+</body>
+</html>

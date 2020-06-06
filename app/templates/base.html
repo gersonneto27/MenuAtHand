@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{%block title%}Menu At Hand{%endblock%}</title>
+  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/font-awesome.min.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/bootstrap.min.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="css/style.css")}}">
+  <!-- =======================================================
+    Theme Name: Delicious
+    Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body>
+  <!--banner-->
+  <section id="banner">
+    <div class="bg-color">
+      <header id="header">
+        <div class="container">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{{url_for('cardapio')}}">Cardápio</a>
+            <a href="{{url_for('pratosespeciais')}}">Pratos Especiais</a>
+            <a href="{{url_for('carrinho')}}">Carrinho</a>
+            <a href="contato">Contato</a>
+          </div>
+          <!-- Use any element to open the sidenav -->
+          <span onclick="openNav()" class="pull-right menu-icon">☰</span>
+        </div>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="inner text-center">
+            <h1 class="logo-name">Menu At Hand</h1>
+            <h2>Restaurante Puro Sabor</h2>
+            <p>Bem-Vindo</p>
+            <a class="btn btn-imfo btn-read-more" href="{{url_for('carrinho')}}">Carrinho</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / banner -->
+  {%block content%}
+  {%endblock%}
+  <!-- footer -->
+  <footer class="footer text-center">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6 text-center">
+          <div class="widget">
+            <h4 class="widget-title">Menu At Hand</h4>
+            <address>Rua Alta Floresta 7112 Porto Alegre<br>Teresina-PI/BR</address>
+            <div class="social-list">
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+            <p class="copyright clear-float">
+              © Menu At Hand. All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / footer -->
+
+  <script src="{{url_for('static', filename="js/jquery.min.js")}}"></script>
+  <script src="{{url_for('static', filename="js/jquery.easing.min.js")}}"></script>
+  <script src="{{url_for('static', filename="js/bootstrap.min.js")}}"></script>
+  <script src="{{url_for('static', filename="js/custom.js")}}"></script>
+  <script src="{{url_for('static', filename="contactform/contactform.js")}}"></script>
+
+</body>
+
+</html>

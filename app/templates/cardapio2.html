@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div class="display">
+	<div class="displayCategory" >
+		<h2>Selecione a Categoria: </h2>
+		<ul>
+			{% for row in categoriaData %}
+			<li><a href="/vercategoria?categoria_id={{row.categoria_id}}">{{row.nome_categoria}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{%endblock%}
+

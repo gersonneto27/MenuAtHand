@@ -1,0 +1,53 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Administrador</title>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-dark bg-dark">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{{url_for('areaadmin')}}">Administrador</a>
+    
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+            class="fas fa-bars fa-1x"></i>☰    </span></button>
+    
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('areaadmin')}}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{url_for('todascategorias')}}">Categorias</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{url_for('todosprodutos')}}">Produtos</a>
+            </li>
+        </ul>
+        <!-- Links -->
+    
+        </div>
+        <!-- Collapsible content -->
+    
+    </nav>
+    <!--/.Navbar-->
+    {% block content %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename="js/jquery.min.js")}}"></script>
+    <script src="{{url_for('static', filename="js/jquery.easing.min.js")}}"></script>
+    <script src="{{url_for('static', filename="js/bootstrap.min.js")}}"></script>
+    <script src="{{url_for('static', filename="js/custom.js")}}"></script>
+    <script src="{{url_for('static', filename="contactform/contactform.js")}}"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Categorias</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="css/todascategorias.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/bootstrap.min.css")}}">
+</head>
+<body>
+  <div id="menu">
+    <p id="pmenu">Lista de Categorias</p>
+  </div>
+  <div class="container">
+    <div class="col-4">
+        <a href="{{ url_for('adicionarcategoria') }}" class="btn btn-success m-5">Adicionar nova categoria</a>
+        <a href="{{ url_for('areaadmin') }}" class="btn btn-danger m-5">Home</a>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+            <th>Nome da categoria</th>
+            <th>Ações</th>
+        </tr>
+      </thead>
+        <tbody>
+          {% for categoria in categorias %}
+            <tr>
+              <td>{{ categoria.nome_categoria}}</td>
+              <td><a href="{{ url_for('categoria', categoria_id=categoria.categoria_id) }}" class="btn btn-primary btn-sm m-1">Ver</a></td>
+
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+body{
+    margin-top: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: white;
+}
+
+#menu {
+    margin-right: -10px;
+    margin-left: -10px;
+    padding: 10px;
+    height: 50px;
+    background-color: black;
+}
+
+#pmenu{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+    font-family: Blippo, fantasy;
+    font-size: 40px;
+    color: white;
+}
+.col-4{
+    margin-top: 10px;
+}
+
+#table{
+    margin:10px;
+    text-align: center;
+}
+
+img{
+    width: 80px;
+    height: 80px;
+}
+
+.column-2{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+#plus{
+    border: none;
+    background-color: white;
+    font-size: 72px;
+    background: -webkit-linear-gradient(right, #00ffff 0%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    outline: none;
+    
+}
+
+#minus{
+    border: none;
+    background-color: white;
+    font-weight: 900;
+    font-size: 40px;
+    background: -webkit-linear-gradient(right, #00ffff 0%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    outline: none;
+}
+
+#quant{
+    position: relative;
+    outline: none;
+    font-size: 20px;
+    border-top-color: white;
+    text-align: center;
+    font-family: Impact, fantasy;
+    font-weight: 900;
+    color: rgb(114, 55, 0);
+}
+
+#total{
+    margin-top: 100px;
+    font-size: 25px;
+    text-align: center;
+    font-family: Stencil Std, fantasy;
+    color: rgba(141, 68, 0, 0.959);
+}
+
+#ask{
+    margin-top: 100px;
+    font-size: 25px;
+    text-align: center;
+    font-family: Optima, sans-serif;
+}
+
+#finalizar{
+    margin-top: 100px;
+    font-size: 25px;
+    text-align: center;
+    font-family: Stencil Std, fantasy;
+    text-decoration: underline;
+}
+
+#erro{
+    margin-top: 100px;
+    font-size: 25px;
+    text-align: center;
+    font-family: Stencil Std, fantasy;
+}
+
+#resposta{
+    margin-top: 100px;
+    font-size: 25px;
+    text-align: center;
+    font-family: Optima, sans-serif;
+    color: rgba(141, 68, 0, 0.959);

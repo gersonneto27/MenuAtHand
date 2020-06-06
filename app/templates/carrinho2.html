@@ -1,0 +1,55 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/carrinho2.css') }} />
+    <title>Carrinho</title>
+</head>
+<body>
+    <div id="menu">
+      <p id="pmenu">Carrinho</p>
+    </div>
+    <div id="table">
+        <table>
+            <tr>
+                <th class="column-1"></th>
+				<th class="column-2"></th>
+				<th class="column-3"></th>
+                <th class="column-4"></th>
+                <th class="column-5"></th>
+            </tr>
+            {% for row in dataCarrinho %}
+            <tr>
+                <td class="column-1">
+                    <img src={{ url_for('static', filename='img/' + row[4])}} id="itemImage" />
+                </td>
+                <td class="column-2">
+                    {{row[2]}}
+                </td>
+                <td class="column-3">
+                    <input id="quant" name="quant" class="text" size="1" type="text" value="{{row[5]}}" maxlength="5" />
+                </td>
+                <td class="column-4">
+                    R${{row[3]}}
+                </td>
+                <td class="column-5">
+                    <a href="/removerdocarrinho?produto_id={{row[1]}}"/>Remover
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div id="total">
+            <label for="">Total: R${{somatotal}}</label>
+        </div>
+        <div id="ask">
+            <a href="/cardapio"/>Adicionar Algo mais?
+        </div>
+        {% if somatotal > 0.00 %}
+        <div id="finalizar">
+            <a href="/criarpedido"/>Finalizar Pedido
+        </div>
+        {% endif %}
+    </div>
+    <script src="{{url_for('static', filename="js/carrinho2.js")}}"></script>
+</body>
+</html>
