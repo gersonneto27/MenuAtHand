@@ -305,4 +305,14 @@ def verpedido(pedido_id):
         return render_template('verpedido.html', produtos = produtos)
     return redirect(url_for('admin'))
 
+@app.route("/pedidos")
+def pedidos():
+    if mesalogada():
+        detalhesdepedidos = Produto.query.join(PedidoSolicitado, Produto.produto_id == PedidoSolicitado.produto_id) \
+            .add_columns(Produto.nome_produto, Produto.valor,PedidoSolicitado.quantidade) \
+            .join(Pedido, Pedido.pedido_id == PedidoSolicitado.pedido_id) \
+            .filter(Pedido.mesa_id == session['mesa'])
+        return render_template('pedidossolicitados.html', detalhesdepedidos = detalhesdepedidos)
+
+
    

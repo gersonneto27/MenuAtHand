@@ -106,12 +106,29 @@ img{
     font-family: Stencil Std, fantasy;
 }
 
-#resposta{
-    margin-top: 100px;
-    font-size: 25px;
-    text-align: center;
-    font-family: Optima, sans-serif;
-    color: rgba(141, 68, 0, 0.959);
+.column-4{
+    font-weight: bolder;
+}
+.column-5 a:link{
+     border: none;
+     color: red;
+     text-decoration: none;
+ }
+.column-5 a:hover{
+     border: none;
+     text-decoration: none;
+     color: red;
+ }
+.column-5 a:visited{
+     border: none;
+     text-decoration: none;
+     color: red;
+ }
+
+.column-5 a:active{
+     border: none;
+    text-decoration: none;
+    color: red;
 }
 
 #ask a:link{
@@ -134,4 +151,29 @@ img{
     border: none;
    text-decoration: underline;
    color: rgba(163, 147, 0, 0.959);
+}
+
+#finalizar a:link{
+    border: none;
+    color: rgba(141, 68, 0, 0.959);
+    text-decoration: underline;
+}
+#finalizar a:hover{
+    border: none;
+    text-decoration: underline;
+    color: rgba(141, 68, 0, 0.959);
+}
+#finalizar a:visited{
+    border: none;
+    text-decoration: underline;
+    color: rgba(141, 68, 0, 0.959);
+}
+
+#finalizar a:active{
+    border: none;
+   text-decoration: underline;
+   color: rgba(141, 68, 0, 0.959);
+}
+label{
+    color: #c0a300;
 }
