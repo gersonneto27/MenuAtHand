@@ -15,27 +15,31 @@
                 <th class="column-1"></th>
                 <th class="column-2"></th>
                 <th class="column-3"></th>
-                <th class="column-3"></th>
+                <th class="column-4"></th>
+                <th class="column-5"></th>
             </tr>
             {% for produto in detalhesdepedidos %}
             <tr>
                 <td class="column-1">
-                  {{produto.nome_produto}}
+                  <img src={{ url_for('static', filename='img/' + produto[3])}} id="itemImage" />
                 </td>
                 <td class="column-2">
-                    {{produto.quantidade}}
+                  {{produto.nome_produto}}
                 </td>
                 <td class="column-3">
+                  {{produto.quantidade}}
+                </td>
+                <td class="column-4">
                   R${{produto.valor}}
                 </td>
-                <td class="column-3">
+                <td class="column-5">
                   <label id="status" for="">Em Preparo</label>
                 </td>
             </tr>
             {% endfor %}
-        </table>
+          </table>
         <div id="ask">
-            <a href="/cardapio" />Adicionar Algo mais?
+            <a href="/cardapio" />Pedir Algo mais?
         </div>
     </div>
     <script src="{{url_for('static', filename="js/pedidossolicitados.js")}}"></script>

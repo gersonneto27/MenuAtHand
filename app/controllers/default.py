@@ -69,7 +69,7 @@ def admin():
                 if request.form['senha'] != senha:
                     error = 'Invalid Credentials. Please try again.'
                 else:
-                    session['nome'] = nome_usuario  # storing session variable
+                    session['nome'] = nome_usuario  
                     return redirect(url_for('areaadmin'))
             error = 'Invalid Credentials. Please try again.'
         return render_template('login.html', error=error)
@@ -110,7 +110,6 @@ def adicionarcategoria():
 def todascategorias():
     if adm_logado():
         categorias = Categoria.query.all()
-        #categorias.execute('SELECT categorias.categoria_id, categorias.nome_categoria, COUNT(categoriasprodutos.produto_id) as noOfProducts FROM categorias LEFT JOIN categoriasprodutos ON categoria.categoria_id = categoriasprodutos.categoria_id GROUP BY categorias.categoria_id');
         return render_template('todascategorias.html', categorias = categorias)
     return redirect(url_for('admin'))
 
@@ -309,10 +308,7 @@ def verpedido(pedido_id):
 def pedidos():
     if mesalogada():
         detalhesdepedidos = Produto.query.join(PedidoSolicitado, Produto.produto_id == PedidoSolicitado.produto_id) \
-            .add_columns(Produto.nome_produto, Produto.valor,PedidoSolicitado.quantidade) \
+            .add_columns(Produto.nome_produto, Produto.valor, Produto.imagem, PedidoSolicitado.quantidade) \
             .join(Pedido, Pedido.pedido_id == PedidoSolicitado.pedido_id) \
             .filter(Pedido.mesa_id == session['mesa'])
         return render_template('pedidossolicitados.html', detalhesdepedidos = detalhesdepedidos)
-
-
-   
