@@ -308,7 +308,7 @@ def verpedido(pedido_id):
 def pedidos():
     if mesalogada():
         detalhesdepedidos = Produto.query.join(PedidoSolicitado, Produto.produto_id == PedidoSolicitado.produto_id) \
-            .add_columns(Produto.nome_produto, Produto.valor, Produto.imagem, PedidoSolicitado.quantidade) \
+            .add_columns(Produto.nome_produto, Produto.valor, Produto.imagem, PedidoSolicitado.quantidade, Pedido.status) \
             .join(Pedido, Pedido.pedido_id == PedidoSolicitado.pedido_id) \
             .filter(Pedido.mesa_id == session['mesa'])
         return render_template('pedidossolicitados.html', detalhesdepedidos = detalhesdepedidos)

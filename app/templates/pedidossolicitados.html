@@ -33,13 +33,16 @@
                   R${{produto.valor}}
                 </td>
                 <td class="column-5">
-                  <label id="status" for="">Em Preparo</label>
+                  <label id="status" for="">{{produto.status}}</label>
                 </td>
             </tr>
             {% endfor %}
           </table>
         <div id="ask">
             <a href="/cardapio" />Pedir Algo mais?
+        </div>
+        <div id="ask">
+          <a href="/pagamento" />Pagamento?
         </div>
     </div>
     <script src="{{url_for('static', filename="js/pedidossolicitados.js")}}"></script>

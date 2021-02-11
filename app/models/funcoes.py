@@ -144,7 +144,7 @@ def extrairdetalhesdoproduto(produto_id):
 def extrairdetalhesdopedido(request, valor_total):
     mesa_id = Mesa.query.with_entities(Mesa.mesa_id).filter(Mesa.mesa_id == session['mesa']).first()
     mesa_id = mesa_id[0]
-    pedido = Pedido(valor_total=valor_total, mesa_id=mesa_id)
+    pedido = Pedido(valor_total=valor_total, mesa_id=mesa_id, status="Recebido")
     db.session.add(pedido)
     db.session.flush()
     db.session.commit()
@@ -186,5 +186,4 @@ def atualizarpagamento(valor_total, pedido_id):
     db.session.add(pagamento)
     db.session.flush()
     db.session.commit()
-    
-    
+
