@@ -14,7 +14,11 @@ def index(mesa):
     lista_mesas = [Mesa.query.all()[i].mesa_id for i in range(len(Mesa.query.all()))]
     if mesaselecionada in lista_mesas:
         session['mesa'] = mesaselecionada
-        return render_template('index.html', mesa=mesaselecionada)
+        if situacaoMesa(mesa):
+            ocuparMesa(mesa)
+            return render_template('index.html', mesa=mesaselecionada)
+        else:
+            return render_template("inicial_erro.html")
 
 
 @app.route("/adicionaraocarrinho")
@@ -275,6 +279,8 @@ def descricaoproduto():
 def pagamento():
     if mesalogada():
         produtosnocarrinho, somatotal= detalhesdecarrinhopormesa()
+        mesa = session['mesa']
+        desocuparMesa(mesa)
         return render_template("pagamento.html", dadoscarrinho=produtosnocarrinho, somatotal=somatotal)
     else:
         return redirect(url_for('index'))
@@ -302,6 +308,7 @@ def verpedido(pedido_id):
             .join(Pedido, Pedido.pedido_id == PedidoSolicitado.pedido_id) \
             .filter(Pedido.pedido_id == int(pedido_id))
         return render_template('verpedido.html', produtos = produtos)
+
     return redirect(url_for('admin'))
 
 @app.route("/pedidos")
@@ -312,3 +319,8 @@ def pedidos():
             .join(Pedido, Pedido.pedido_id == PedidoSolicitado.pedido_id) \
             .filter(Pedido.mesa_id == session['mesa'])
         return render_template('pedidossolicitados.html', detalhesdepedidos = detalhesdepedidos)
+
+@app.route("/finalizar/<int:mesa>")
+def finalizar(mesa):
+    finalizarMesa(mesa)
+

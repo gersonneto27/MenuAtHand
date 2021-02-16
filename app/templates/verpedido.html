@@ -13,10 +13,10 @@
           <tr>
             <td>{{ produto.nome_produto }}</td> 
             <td>{{ produto.quantidade}}</td>
-            <td><a href="#" class="btn btn-primary btn-sm m-1">Finalizar</a></td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
+    <a href="{{'finalizar',}}" class="btn btn-primary btn-sm m-1">Finalizar Mesa</a>
   
 {% endblock %}

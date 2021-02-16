@@ -14,6 +14,7 @@ class Mesa(db.Model):
 
     mesa_id = db.Column(db.Integer, primary_key=True)
     numero_mesa = db.Column(db.Integer, unique=True)
+    situacao = db.Column(db.String)
 
 
 class Produto(db.Model):

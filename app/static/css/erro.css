@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 93.75%;
+}
+
+body {
+    background: rgb(56, 52, 52);
+    font-family: "Newsreader", serif;
+    
+}
+
+header{
+    text-align: center;
+    display: block;
+    transform-origin: center;
+    transform: rotate(-19.5deg);
+    font-family: 'Pacifico', cursive;
+    font-size: 100px;
+}
+
+.mensagem {
+    color: #ffff;
+    margin-right: 240px;
+    margin-top: -120px;
+    text-align: right;
+}

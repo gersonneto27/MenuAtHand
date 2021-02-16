@@ -6,6 +6,20 @@ from wtforms.validators import DataRequired
 from flask_wtf.file import FileField, FileAllowed
 
 
+def ocuparMesa(mesa):
+    mesaSelecionada= Mesa.query.filter_by(numero_mesa = mesa).first()
+    mesaSelecionada.situacao = "ocupada"
+    db.session.flush()
+    db.session.commit()
+
+def situacaoMesa(mesa):
+    mesaSelecionada= Mesa.query.filter_by(numero_mesa = mesa).first()
+    if mesaSelecionada.situacao == "ocupada":
+        return False
+    else:
+        return True
+
+
 def mesalogada():
     if 'mesa' not in session:
         return False
@@ -186,4 +200,17 @@ def atualizarpagamento(valor_total, pedido_id):
     db.session.add(pagamento)
     db.session.flush()
     db.session.commit()
+
+def desocuparMesa(mesa):
+    mesaSelecionada= Mesa.query.filter_by(numero_mesa = mesa).first()
+    mesaSelecionada.situacao = "livre"
+    db.session.flush()
+    db.session.commit()
+
+def finalizarMesa(mesa):
+    mesaSelecionada= Mesa.query.filter_by(numero_mesa = mesa).first()
+    mesaSelecionada.situacao = "livre"
+    db.session.flush()
+    db.session.commit()
+
 
