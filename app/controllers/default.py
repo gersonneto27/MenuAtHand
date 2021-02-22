@@ -299,6 +299,7 @@ def areaadmin():
         return render_template('admin.html', pedidos = pedidos)
     return redirect(url_for('admin'))
 
+
 @app.route("/verpedido/<int:pedido_id>")
 def verpedido(pedido_id):
     if adm_logado():
@@ -307,7 +308,15 @@ def verpedido(pedido_id):
             .add_columns(Produto.nome_produto, PedidoSolicitado.quantidade) \
             .join(Pedido, Pedido.pedido_id == PedidoSolicitado.pedido_id) \
             .filter(Pedido.pedido_id == int(pedido_id))
-        return render_template('verpedido.html', produtos = produtos)
+
+        mesas = Mesa.query.join(Pedido, Mesa.mesa_id == Pedido.mesa_id) \
+            .add_columns(Mesa.mesa_id) \
+            .filter(Pedido.pedido_id == int(pedido_id))
+
+        for mesa in mesas:
+            mesa_selecionada = mesa.mesa_id
+
+        return render_template('verpedido.html', produtos = produtos, mesa_selecionada = mesa_selecionada)
 
     return redirect(url_for('admin'))
 
@@ -323,4 +332,4 @@ def pedidos():
 @app.route("/finalizar/<int:mesa>")
 def finalizar(mesa):
     finalizarMesa(mesa)
-
+    return redirect(url_for('areaadmin'))

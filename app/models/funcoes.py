@@ -147,7 +147,7 @@ def detalhesdamesa():
             produtosnocarrinho.append(carrinho.produto_id)
             produtototalnamesa = len(produtosnocarrinho)
 
-    return (logado, numero_mesa) #produtototalnamesa)
+    return (logado, numero_mesa) 
 
 
 def extrairdetalhesdoproduto(produto_id):
@@ -213,4 +213,8 @@ def finalizarMesa(mesa):
     db.session.flush()
     db.session.commit()
 
-
+def mesasOcupadas():
+    mesas = Mesa.query.all()
+    for mesa in mesas:
+        if mesa.status == "ocupada":
+            
