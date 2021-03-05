@@ -212,9 +212,3 @@ def finalizarMesa(mesa):
     mesaSelecionada.situacao = "livre"
     db.session.flush()
     db.session.commit()
-
-def mesasOcupadas():
-    mesas = Mesa.query.all()
-    for mesa in mesas:
-        if mesa.status == "ocupada":
-            
